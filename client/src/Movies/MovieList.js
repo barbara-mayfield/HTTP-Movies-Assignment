@@ -9,14 +9,12 @@ export default class MovieList extends Component {
       movies: []
     };
   }
-
   componentDidMount() {
     axios
       .get("http://localhost:5000/api/movies")
       .then(res => this.setState({ movies: res.data }))
       .catch(err => console.log(err.response));
   }
-
   render() {
     return (
       <div className="movie-list">
@@ -27,7 +25,6 @@ export default class MovieList extends Component {
     );
   }
 }
-
 function MovieDetails({ movie }) {
   return (
     <Link to={`/movies/${movie.id}`}>
